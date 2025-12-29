@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="home-en.html" class="logo">Travel with Zoe</a>
+            <div class="nav-links">
+                <a href="home-en.html">Home</a>
+                <a href="tours-en.html">Tours</a>
+                <a href="about-en.html">About</a>
+                <a href="contact-en.html">Contact</a>
+                <a href="reviews-en.html" class="active">Reviews</a>
+                <a href="index.html" style="font-size:0.8rem; border:1px solid #ccc; padding:2px 8px; border-radius:4px;">🌐 Lang</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="detail-header" style="height: 50vh; background-image: url('images/review.jpg');">
+        <div class="page-header">
+            <h1>What Travelers Say</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Real stories from unforgettable adventures.</p>
+        </div>
+    </header>
+
+    <div class="container" style="padding-top: 50px; padding-bottom: 80px;">
+
+        <section class="rating-summary">
+            <div class="big-score">4.8</div>
+            <div class="stars-yellow">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+            </div>
+            <p style="color: #666; margin: 0;">Based on over 10 happy travelers</p>
+        </section>
+
+        <section class="grid" style="margin-bottom: 80px;">
+            <div class="review-card">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <div class="reviewer-profile">
+                    <div class="avatar" style="background:#e3f2fd; color:#2196f3;">M</div>
+                    <div class="reviewer-info">
+                        <h4>Maria Garcia</h4>
+                        <span class="review-date">December 2024</span>
+                    </div>
+                </div>
+                <div class="stars-yellow" style="font-size: 1rem; margin-top: 0;">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                </div>
+                <p class="review-text">"Incredible experience! Zoe knows all the hidden secrets of the city. The food was amazing, and we learned so much."</p>
+            </div>
+
+            <div class="review-card">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <div class="reviewer-profile">
+                    <div class="avatar" style="background:#fce4ec; color:#e91e63;">J</div>
+                    <div class="reviewer-info">
+                        <h4>John Smith</h4>
+                        <span class="review-date">May 2025</span>
+                    </div>
+                </div>
+                <div class="stars-yellow" style="font-size: 1rem; margin-top: 0;">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                </div>
+                <p class="review-text">"The off-road tour was the highlight of our trip. Professional, safe, and super fun. Highly recommended for couples!"</p>
+            </div>
+
+            <div class="review-card">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <div class="reviewer-profile">
+                    <div class="avatar" style="background:#e8f5e9; color:#4caf50;">L</div>
+                    <div class="reviewer-info">
+                        <h4>Laura & Tom</h4>
+                        <span class="review-date">August 2025</span>
+                    </div>
+                </div>
+                <div class="stars-yellow" style="font-size: 1rem; margin-top: 0;">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                </div>
+                <p class="review-text">"A perfect day. We loved the flexibility of the itinerary and the patience with our kids. Thanks for everything!"</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="page-header" style="margin-bottom: 20px;">
+                <h2>Unforgettable Moments</h2>
+                <p>Real smiles from our traveler friends.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/review1.jpg" alt="Happy client moment">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/review2.jpg" alt="Tour group photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/review3.jpg" alt="Scenic view">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/review4.jpg" alt="Travel memory">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="page-header" style="margin-bottom: 30px;">
+                <h2>Did you travel with us?</h2>
+                <p>Leave your review and help other travelers.</p>
+            </div>
+            
+            <div class="review-form-box">
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Ex: John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="hello@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Experience</label>
+                        <textarea name="message" class="form-control" rows="4" placeholder="Tell us how you liked the tour..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; border:none; cursor:pointer;">Submit Review</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 30px 0; color: #999; font-size: 0.9rem;">
+            &copy; 2025 Viajamos con Zoe
+        </div>
+    </footer>
+</body>
+</html>

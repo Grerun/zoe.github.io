@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniones</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="home-sp.html" class="logo">Viajamos con Zoe</a>
+            <div class="nav-links">
+                <a href="home-sp.html">Inicio</a>
+                <a href="tours-sp.html">Rutas</a>
+                <a href="about-sp.html">Sobre mí</a>
+                <a href="contact-sp.html">Contacto</a>
+                <a href="reviews-sp.html" class="active">Comentarios</a>
+                <a href="index.html" style="font-size:0.8rem; border:1px solid #ccc; padding:2px 8px; border-radius:4px;">🌐 Lang</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="detail-header" style="height: 50vh; background-image: url('images/review.jpg');">
+        <div class="page-header">
+            <h1>Lo Que Dicen Los Viajeros</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Historias reales de aventuras inolvidables.</p>
+        </div>
+    </header>
+
+    <div class="container" style="padding-top: 50px; padding-bottom: 80px;">
+
+        <section class="rating-summary">
+            <div class="big-score">4.8</div>
+            <div class="stars-yellow">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+            </div>
+            <p style="color: #666; margin: 0;">Basado en más de 10 viajeros felices</p>
+        </section>
+
+        <section class="grid" style="margin-bottom: 80px;">
+            <div class="review-card">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <div class="reviewer-profile">
+                    <div class="avatar" style="background:#e3f2fd; color:#2196f3;">M</div>
+                    <div class="reviewer-info">
+                        <h4>Maria Garcia</h4>
+                        <span class="review-date">Diciembre 2024</span>
+                    </div>
+                </div>
+                <div class="stars-yellow" style="font-size: 1rem; margin-top: 0;">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                </div>
+                <p class="review-text">"¡Increíble experiencia! Zoe conoce todos los secretos ocultos de la ciudad. La comida fue espectacular y aprendimos muchísimo."</p>
+            </div>
+
+            <div class="review-card">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <div class="reviewer-profile">
+                    <div class="avatar" style="background:#fce4ec; color:#e91e63;">J</div>
+                    <div class="reviewer-info">
+                        <h4>John Smith</h4>
+                        <span class="review-date">Mayo 2025</span>
+                    </div>
+                </div>
+                <div class="stars-yellow" style="font-size: 1rem; margin-top: 0;">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                </div>
+                <p class="review-text">"El tour off-road fue lo mejor de nuestro viaje. Profesional, seguro y súper divertido. ¡Muy recomendado para parejas!"</p>
+            </div>
+
+            <div class="review-card">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <div class="reviewer-profile">
+                    <div class="avatar" style="background:#e8f5e9; color:#4caf50;">L</div>
+                    <div class="reviewer-info">
+                        <h4>Laura & Tom</h4>
+                        <span class="review-date">Agosto 2025</span>
+                    </div>
+                </div>
+                <div class="stars-yellow" style="font-size: 1rem; margin-top: 0;">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                </div>
+                <p class="review-text">"Un día perfecto. Nos encantó la flexibilidad del itinerario y la paciencia con nuestros hijos. ¡Gracias por todo!"</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="page-header" style="margin-bottom: 20px;">
+                <h2>Momentos Inolvidables</h2>
+                <p>Sonrisas reales de nuestros amigos viajeros.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/review1.jpg" alt="Momento feliz">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/review2.jpg" alt="Foto de grupo">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/review3.jpg" alt="Paisaje">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/review4.jpg" alt="Recuerdo de viaje">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="page-header" style="margin-bottom: 30px;">
+                <h2>¿Viajaste con nosotros?</h2>
+                <p>Déjanos tu opinión y ayuda a otros viajeros.</p>
+            </div>
+            
+            <div class="review-form-box">
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    
+                    <div class="form-group">
+                        <label>Tu Nombre</label>
+                        <input type="text" name="name" class="form-control" placeholder="Ej: Juan Pérez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tu Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="hola@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tu Experiencia</label>
+                        <textarea name="message" class="form-control" rows="4" placeholder="Cuéntanos qué te pareció el tour..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; border:none; cursor:pointer;">Enviar Opinión</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 30px 0; color: #999; font-size: 0.9rem;">
+            &copy; 2025 Viajamos con Zoe
+        </div>
+    </footer>
+</body>
+</html>

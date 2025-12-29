@@ -1,0 +1,668 @@
+/* =========================================
+   1. 全局设置 & 字体引入
+   ========================================= */
+/* 引入谷歌字体 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+body { 
+    font-family: 'Open Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+    margin: 0; 
+    color: #4a4a4a; 
+    line-height: 1.7; 
+    background-color: #f8f9fa; 
+}
+
+img { max-width: 100%; height: auto; border-radius: 8px; }
+a { text-decoration: none; transition: 0.3s; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px 0; }
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+/* =========================================
+   2. 组件样式 (按钮、卡片)
+   ========================================= */
+/* 按钮通用样式 */
+.btn { 
+    background: #ff9f43; 
+    color: white; 
+    padding: 12px 30px; 
+    border-radius: 50px; 
+    display: inline-block; 
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(255, 159, 67, 0.3); 
+}
+.btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(255, 159, 67, 0.4); 
+    background: #e68a35;
+}
+
+/* 基础网格布局 */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+
+/* =========================================
+   3. 导航栏 (Navigation)
+   ========================================= */
+nav { background: #fff; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+nav .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+.logo { font-size: 1.5rem; font-weight: bold; color: #2c3e50; }
+.nav-links a { color: #555; margin-left: 20px; font-weight: 600; font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: #ff9f43; }
+
+
+/* =========================================
+   4. 页面特定：语言选择页 (Index)
+   ========================================= */
+/* --- 语言选择页容器 --- */
+.lang-screen {
+    position: relative; /* 设定基准，为了让里面的绝对定位生效 */
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* 防止图片放大时撑破屏幕 */
+    /* 注意：这里不再设置 background-image，因为图片移到 html 里了 */
+}
+
+/* --- 1. 轮播背景层设置 --- */
+.slideshow {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1; /* 最底层 */
+}
+
+.slide-item {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* 默认隐藏 */
+    animation: zoomFade 15s infinite; /* 15秒循环一次 */
+}
+
+/* 核心技巧：设置不同的延迟时间，让它们轮流显示 */
+/* 这里的算法是：总时间15秒 / 3张图 = 每张图间隔5秒 */
+.slide-item:nth-child(1) { animation-delay: 0s; }
+.slide-item:nth-child(2) { animation-delay: 5s; }
+.slide-item:nth-child(3) { animation-delay: 10s; }
+
+/* 定义动画：淡入淡出 + 缓慢放大 */
+@keyframes zoomFade {
+    0% { opacity: 0; transform: scale(1); }
+    10% { opacity: 1; }      /* 1.5秒内浮现 */
+    33% { opacity: 1; }      /* 保持显示约5秒 */
+    43% { opacity: 0; transform: scale(1.1); } /* 慢慢放大并消失 */
+    100% { opacity: 0; }
+}
+
+/* --- 2. 黑色半透明遮罩层 --- */
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 0.4 代表40%的黑色透明度 */
+    z-index: 2; /* 中间层 */
+}
+
+/* --- 3. 内容层 (文字和按钮) --- */
+.content-box {
+    position: relative;
+    z-index: 3; /* 最顶层，确保按钮能被点击 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* 按钮样式保持不变 */
+.lang-btn {
+    display: block; width: 200px; padding: 15px; margin: 15px auto;
+    border: 2px solid white; color: white; text-decoration: none;
+    font-size: 1.1rem; border-radius: 50px; transition: 0.3s;
+}
+.lang-btn:hover { background: white; color: #333; transform: scale(1.05); }
+.lang-btn.primary { background: #ff9f43; border-color: #ff9f43; font-weight: bold; }
+
+
+/* =========================================
+   5. 页面特定：首页 (Home)
+   ========================================= */
+/* --- 修复后的 Hero 区域 (针对你的照片优化) --- */
+.hero { 
+    /* 1. 背景图设置 */
+    /* 注意：这里加深了遮罩层(0.3 -> 0.4)，让背景稍暗一点，衬托文字和人 */
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%), url('images/home.jpg'); 
+    background-size: cover; 
+    background-position: center 70%; /* 确保照片居中 */
+    
+    /* 2. 布局控制 (关键) */
+    height: 80vh; /* 高度稍微调高一点，更有大气感 */
+    display: flex; 
+    align-items: center; /* 垂直居中 */
+    justify-content: flex-start; /* 水平靠左 (原先是 center) */
+    
+    /* 3. 文字通用设置 */
+    color: white; /* 强制白色文字 */
+    text-align: left; /* 文字左对齐 */
+    padding-left: 5%; /* 给左边留出 10% 的呼吸空间，不要紧贴屏幕边缘 */
+    position: relative;
+}
+
+/* 针对 Hero 里面的文字单独优化 */
+.hero h1 { 
+    font-size: 3.5rem; /* 字号加大 */
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: white;
+}
+
+.hero p { 
+    font-size: 1.4rem; 
+    margin-bottom: 30px;
+    max-width: 600px; /* 限制这行字的宽度，防止它太长撞到你的脸上 */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    opacity: 0.9;
+}
+
+/* 按钮样式微调 */
+.btn {
+    font-size: 1.1rem;
+    padding: 12px 35px;
+    box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4); /* 给按钮加个发光阴影 */
+}
+
+/* --- 手机端适配 (手机屏幕窄，我们要改回居中) --- */
+@media (max-width: 768px) {
+    .hero {
+        justify-content: center; /* 手机上改回居中 */
+        text-align: center;      /* 文字居中 */
+        padding-left: 0;         /* 取消左边距 */
+        padding: 0 20px;         /* 左右给点空隙 */
+        background-position: 65% center; /* 手机上把照片稍微往左挪一点，让人露出来 */
+    }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1.1rem; max-width: 100%; }
+}
+
+
+/* =========================================
+   6. 页面特定：路线列表页 (Tour List)
+   ========================================= */
+.page-header { text-align: center; margin: 40px 0; }
+.page-header h1 { font-size: 2.5rem; color: #2c3e50; margin-bottom: 10px; }
+.page-header p { color: #777; }
+
+/* 左图右文布局 */
+/* --- 修复后的路线列表样式 --- */
+
+.tour-row {
+    display: flex; 
+    gap: 30px; 
+    background: white; 
+    border: 1px solid #eee;
+    margin-bottom: 30px; 
+    border-radius: 12px; 
+    overflow: hidden; /* 第一把锁：确保整个卡片圆角不被图片遮住 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    /* 增加一个最大高度，防止图片如果是竖图把卡片撑得太高 */
+    max-height: 500px; 
+}
+
+.tour-img-box { 
+    flex: 1; /* 宽度占比 */
+    min-height: 250px; 
+    position: relative; /* 关键：作为图片的定位基准 */
+    overflow: hidden;   /* 第二把锁：图片超出这个框的部分，直接“剪掉” */
+}
+
+.tour-img-box img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* 核心：让图片像壁纸一样铺满，自动裁剪，不变形 */
+    position: absolute; /* 绝对定位：强制图片服从盒子的大小，而不是图片撑大盒子 */
+    top: 0;
+    left: 0;
+}
+
+.tour-info-box { 
+    flex: 1.5; 
+    padding: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    overflow-y: auto; /* 如果文字实在太多，让文字滚动，而不是撑大盒子 */
+}
+
+/* 手机端适配：取消高度限制，变成上下排列 */
+@media (max-width: 768px) {
+    .tour-row { 
+        flex-direction: column; 
+        max-height: none; /* 手机上取消高度限制 */
+    }
+    .tour-img-box { 
+        height: 250px; /* 手机上图片固定高度 */
+        min-height: 250px;
+    }
+    .tour-img-box img {
+        position: relative; /* 手机上恢复正常流 */
+    }
+}
+
+
+/* =========================================
+   7. 页面特定：详情页深度美化 (Detail Page)
+   ========================================= */
+/* 7.1 详情页大图 Header */
+.detail-header {
+    height: 60vh;
+    background-size: cover; background-position: center;
+    position: relative;
+    display: flex; align-items: flex-end;
+}
+.detail-header::after {
+    content: ''; position: absolute; top:0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+}
+.detail-header .page-header {
+    position: relative; z-index: 2; color: white;
+    text-align: left; 
+    padding: 0 50px 50px 50px; margin: 0 auto; width: 100%; max-width: 1200px;
+}
+.detail-header h1 { 
+    font-size: 3.2rem; margin-bottom: 15px; color: white; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+}
+.tour-meta span {
+    display: inline-block; background: rgba(255,255,255,0.2); 
+    backdrop-filter: blur(5px); padding: 5px 12px; border-radius: 20px;
+    margin-right: 10px; font-size: 0.9rem; font-weight: 600;
+}
+
+/* 7.2 模块通用 */
+.content-section { margin-bottom: 50px; }
+
+/* 7.3 亮点网格 (Highlights) */
+.highlights-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 25px; margin-top: 30px;
+}
+.highlight-card {
+    background: #fff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    display: flex; align-items: flex-start;
+}
+.highlight-icon { font-size: 2rem; margin-right: 15px; color: #ff9f43; }
+.highlight-text h4 { margin-bottom: 5px; font-size: 1.1rem; }
+.highlight-text p { margin: 0; font-size: 0.9rem; color: #777; }
+
+/* 7.4 行程时间轴 (Itinerary) - 已修复遮挡问题 */
+.itinerary-timeline { margin-top: 30px; padding-left: 10px; }
+
+.itinerary-item {
+    display: flex; 
+    gap: 25px; 
+    padding-bottom: 40px;
+    border-left: 3px solid #eee; /* 竖线 */
+    position: relative;
+    
+    /* 🔥 关键修复：增加左内边距，把文字推开，不让圆点挡住 */
+    padding-left: 30px; 
+}
+
+.itinerary-item:last-child { border-left: 3px solid transparent; } 
+
+.itinerary-item::before {
+    content: ''; width: 16px; height: 16px; background: #fff; 
+    border: 4px solid #ff9f43; border-radius: 50%;
+    position: absolute; 
+    
+    /* 🔥 关键修复：调整圆点位置，使其垂直居中于竖线 */
+    left: -11.5px; 
+    
+    top: 0px;
+    box-shadow: 0 0 0 4px rgba(255,159,67,0.15); /* 光晕 */
+}
+.time-tag { font-weight: 700; color: #2c3e50; min-width: 60px; font-family: 'Montserrat', sans-serif; }
+.itinerary-content { 
+    flex: 1; background: #fff; padding: 20px; 
+    border-radius: 0 12px 12px 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+}
+
+/* 7.5 包含项目 (Included) */
+.included-box {
+    background: #fff; padding: 30px; border-radius: 16px;
+    border: 2px solid #eef2f5;
+    box-shadow: 0 5px 20px rgba(239, 242, 245, 0.5);
+}
+.included-list { 
+    list-style: none; padding: 0; margin-top: 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;
+}
+.included-list li { display: flex; align-items: center; font-weight: 600; color: #555; }
+.included-list li::before {
+    content: '✓'; display: inline-flex; justify-content: center; align-items: center;
+    width: 24px; height: 24px; background: #e8f5e9; color: #27ae60;
+    border-radius: 50%; margin-right: 10px; font-size: 14px; font-weight: bold;
+}
+
+/* 7.6 底部悬浮预订栏 */
+.booking-bar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #eee; padding: 15px 0;
+    position: sticky; bottom: 0; z-index: 999;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
+}
+.price-label { font-size: 0.9rem; color: #888; display: block; }
+.price-tag { font-size: 1.8rem; color: #e74c3c; font-weight: 700; font-family: 'Montserrat', sans-serif;}
+
+
+/* =========================================
+   8. 页脚 & 移动端适配
+   ========================================= */
+footer { text-align: center; padding: 40px; background: #2c3e50; color: #aaa; margin-top: 60px; }
+
+@media (max-width: 768px) {
+    .hero h1, .detail-header h1 { font-size: 2rem; }
+    nav .container { flex-direction: column; gap: 10px; }
+    .nav-links a { margin: 0 10px; font-size: 0.9rem; }
+    
+    /* 列表页竖排 */
+    .tour-row { flex-direction: column; }
+    .tour-img-box { height: 200px; }
+    
+    /* 详情页适配 */
+    .detail-header { height: 50vh; }
+    .detail-header .page-header { padding: 30px 20px; }
+    .itinerary-item { flex-direction: column; gap: 5px; }
+    .time-tag { margin-bottom: 5px; }
+}
+
+/* =========================================
+   9. 新增：用户反馈页样式 (Reviews)
+   ========================================= */
+
+/* 总体评分栏 */
+.rating-summary {
+    background: #fff; padding: 40px; border-radius: 12px;
+    text-align: center; margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.big-score { font-size: 3.5rem; font-weight: 800; color: #2c3e50; line-height: 1; font-family: 'Montserrat', sans-serif;}
+.stars-yellow { color: #ff9f43; font-size: 1.5rem; margin: 10px 0; }
+
+/* 评论卡片 */
+.review-card {
+    background: #fff; padding: 30px; border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0; position: relative;
+    transition: 0.3s;
+}
+.review-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+
+/* 装饰性引号 */
+.quote-icon-bg {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 3rem; color: #f0f2f5; font-family: serif;
+}
+
+/* 用户信息区 */
+.reviewer-profile { display: flex; align-items: center; margin-bottom: 15px; }
+.avatar {
+    width: 50px; height: 50px; background: #eee; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; color: #888; margin-right: 15px; font-size: 1.2rem;
+}
+.reviewer-info h4 { margin: 0; font-size: 1rem; color: #333; }
+.review-date { font-size: 0.8rem; color: #999; }
+.review-text { color: #555; font-style: italic; line-height: 1.6; }
+
+/* 留言表单 */
+.review-form-box {
+    max-width: 600px; margin: 0 auto; background: white; padding: 40px;
+    border-radius: 16px; box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+}
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; }
+.form-control {
+    width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 8px;
+    font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: 0.3s;
+}
+.form-control:focus { border-color: #ff9f43; outline: none; }
+
+/* =========================================
+   10. 新增：照片墙样式 (Gallery)
+   ========================================= */
+.gallery-section {
+    margin-bottom: 80px;
+}
+.gallery-grid {
+    display: grid;
+    /* 自动适应宽度，手机显示1列，电脑显示4列 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px;
+    margin-top: 30px;
+}
+.gallery-item {
+    height: 250px; /* 固定高度，保证整齐 */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 关键：裁剪图片以填满格子，不变形 */
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.1); /* 鼠标悬停时轻微放大 */
+}
+/* =========================================
+   10. 新增：关于我 (About Page) 专属样式
+   ========================================= */
+
+/* 头部介绍区：照片+基本信息 */
+.about-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.about-photo-frame {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.about-photo-frame img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 #f0f2f5; /* 简单的装饰性阴影 */
+}
+
+.about-intro-text {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.greeting {
+    color:#ff9f43; /* 使用变量，方便后期统一修改 */
+    font-weight: 700;            /* 加粗，让文字更醒目 */
+    letter-spacing: 1px;         /* 字体变大后，间距可以稍微收一点点，看起来更紧凑 */
+    text-transform: uppercase;   /* 保持大写风格 */
+    
+    /* --- 修改重点 --- */
+    font-size: 1.2rem;           /* 调大：原 0.9rem -> 现 1.2rem */
+    font-family: 'Montserrat', sans-serif; /* 换字体：使用更具设计感的 Montserrat */
+    
+    margin-bottom: 15px;         /* 字变大了，下边距也稍微增加一点，呼吸感更好 */
+    display: block;
+}
+.about-intro-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #2c3e50;
+}
+
+/* 语言技能标签 */
+.language-badges {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+.badge {
+    padding: 6px 15px;
+    background: #e3f2fd;
+    color: #2196f3;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.badge.es { background: #fff3e0; color: #ff9800; } /* 西语用橙色 */
+.badge.en { background: #e8f5e9; color: #4caf50; } /* 英语用绿色 */
+
+/* 经历部分 */
+.experience-section {
+    margin-bottom: 60px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* 理念展示框 - 现代轻盈版 */
+.philosophy-box {
+    /* 背景：从纯白过渡到极淡的蓝色，像清晨的空气 */
+    background: linear-gradient(180deg, #ffffff 0%, #f3f8fb 100%);
+    
+    /* 边框：极细的浅灰色，增加精致感 */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    
+    /* 阴影：大范围的柔和阴影，让卡片浮起来 */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    
+    /* 圆角与内边距 */
+    border-radius: 24px;
+    padding: 60px 50px;
+    margin-bottom: 60px;
+    position: relative;
+    text-align: center; /* 居中对齐显得更优雅 */
+}
+
+/* 标题样式 */
+.philosophy-box h3 {
+    color: #2c3e50; /* 深灰蓝色，保持可读性 */
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 15px;
+    border: none; /* 去掉原本的横线 */
+}
+
+/* 标题下面的小装饰线 */
+.philosophy-box h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #3498db; /* 品牌蓝 */
+    border-radius: 2px;
+}
+
+/* 内容文字 */
+.philosophy-content {
+    color: #666; /* 柔和的灰色 */
+    font-size: 1.15rem;
+    line-height: 1.9;
+    font-weight: 300; /* 字体稍微细一点，显精致 */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 装饰：背景里的巨大淡色双引号 */
+.philosophy-box::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 150px;
+    line-height: 1;
+    font-family: serif; /* 衬线体 */
+    color: rgba(52, 152, 219, 0.05); /* 极淡的蓝色 */
+    pointer-events: none;
+}
+/* 装饰背景字 */
+.bg-deco-text {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    z-index: 1;
+    pointer-events: none;
+}
+/* =========================================
+   毛玻璃返回按钮样式 (Glassmorphism Back Button)
+   ========================================= */
+
+.back-btn-glass {
+    display: inline-flex;       /* 让图标和文字横向排列 */
+    align-items: center;        /* 垂直居中对齐 */
+    gap: 8px;                   /* 图标和文字之间的间距 */
+    
+    /* 玻璃效果核心代码 */
+    background: rgba(255, 255, 255, 0.15); /* 15%透明度的白色 */
+    backdrop-filter: blur(10px);           /* 背景模糊 */
+    -webkit-backdrop-filter: blur(10px);   /* 兼容苹果 Safari 浏览器 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 半透明边框，增加质感 */
+    
+    /* 尺寸与字体 */
+    padding: 10px 25px;
+    border-radius: 50px;        /* 胶囊圆角 */
+    color: #ffffff;
+    text-decoration: none;      /* 去掉下划线 */
+    font-size: 0.95rem;
+    font-weight: 500;
+    
+    /* 动画过渡 */
+    transition: all 0.3s ease;
+    
+    /* 布局微调 */
+    margin-bottom: 20px;        /* 与下方大标题拉开距离 */
+    align-self: flex-start;     /* 确保它在容器左侧（如果父容器是 flex） */
+}
+
+/* 鼠标悬停效果 */
+.back-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.3); /* 变亮一点 */
+    transform: translateX(-5px);           /* 向左轻微移动，暗示“返回” */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 增加阴影 */
+}
+
+/* 手机端适配：如果屏幕太小，稍微改小一点 */
+@media (max-width: 768px) {
+    .back-btn-glass {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}

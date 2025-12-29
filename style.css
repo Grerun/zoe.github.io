@@ -666,3 +666,69 @@ footer { text-align: center; padding: 40px; background: #2c3e50; color: #aaa; ma
         font-size: 0.9rem;
     }
 }
+/* =========================================
+   手机导航栏适配 (Mobile Navigation)
+   ========================================= */
+
+/* 1. 基础设置：让导航栏左右撑开 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    position: relative; /* 关键：为了让下拉菜单定位 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* 加个小阴影好看 */
+}
+
+/* Logo 样式微调 */
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+/* 2. 默认（电脑端）隐藏汉堡图标 */
+.menu-toggle {
+    display: none; 
+}
+
+/* 3. 手机端专用样式 */
+@media (max-width: 768px) {
+    
+    /* 显示汉堡图标 */
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* 改造菜单链接列表：变成绝对定位的下拉框 */
+    .nav-links {
+        display: none; /* 默认隐藏菜单 */
+        position: absolute;
+        top: 100%; /* 在导航栏正下方 */
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column; /* 竖着排 */
+        align-items: center;    /* 居中对齐 */
+        padding: 20px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000; /* 保证在最上层 */
+    }
+
+    /* 激活状态：当 JS 给它加上 active 类时，变成 flex 显示出来 */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* 给每个链接加点间距，方便手指点击 */
+    .nav-links li {
+        margin: 15px 0;
+        width: 100%;        /* 占满整行 */
+        text-align: center; /* 文字居中 */
+    }
+}

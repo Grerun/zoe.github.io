@@ -12,6 +12,8 @@
     <nav>
         <div class="container">
             <a href="home-sp.html" class="logo">Viajamos con Zoe</a>
+            <div class="menu-toggle" id="mobile-menu">
+        <i class="ri-menu-line"></i> </div>
             <div class="nav-links">
                 <a href="home-sp.html">Inicio</a>
                 <a href="tours-sp.html">Rutas</a>
@@ -89,6 +91,16 @@
             &copy; 2025 Viajamos con Zoe
         </div>
     </footer>
+<script>
+    // 获取汉堡按钮和菜单列表
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
 
+    // 监听点击事件
+    menuToggle.addEventListener('click', () => {
+        // 切换 'active' 类 (如果有就删掉，没有就加上)
+        navLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>

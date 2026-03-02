@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Viajamos con Zoe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首页 - Viajamos con Zoe</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -27,45 +27,166 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Los Paisajes Más Bellos</h1>
-            <p>Soy Zoe, te llevo a explorar una China auténtica y fascinante.</p>
-            <a href="tours-sp.html" class="btn">Ver Rutas</a>
+            <div class="hero-inner">
+                <div class="hero-badge">
+                    <i class="ri-user-star-line"></i>
+                    已接待超过 100 位旅客
+                </div>
+
+                <h1>和 Zoe 一起，轻松玩懂中国</h1>
+                <p>
+                    不只是打卡景点，更是一次轻松、有趣、有故事的旅行体验。
+                    我会带你看风景，也带你感受城市真正的温度。
+                </p>
+
+                <div class="hero-actions">
+                    <a href="tours-sp.html" class="btn">查看行程</a>
+                    <a href="about-sp.html" class="btn btn-outline">认识 Zoe</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="container" style="text-align: center; margin-top: 40px;">
-        <h2>¿Por qué elegirme?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>📸 Fotografía Pro</h3>
-                <p>Llevo mi cámara réflex. Te regalo fotos de viaje editadas profesionalmente.</p>
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>为什么选择我？</h2>
+                <p>不仅是导游，更是你的旅行搭子、拍照搭子和故事讲述者</p>
             </div>
-            <div class="card">
-                <h3>🗺️ Historia Viva</h3>
-                <p>Sin guiones aburridos. Te cuento las historias reales detrás de cada lugar.</p>
+
+                <div class="grid-3">
+                <div class="card tour-card">
+                    <h3>📸 旅拍加持</h3>
+                    <p>自带相机，帮你记录自然又好看的旅行瞬间，不只是“到此一游”。</p>
+                    <a href="photo-sp.html" class="btn">查看详情</a>
+                </div>
+
+                <div class="card tour-card">
+                    <h3>🗺️ 文化讲解</h3>
+                    <p>不只是看景点，也带你听懂城市背后的历史、生活与故事。</p>
+                    <a href="culture-sp.html" class="btn">查看详情</a>
+                </div>
+
+                <div class="card tour-card">
+                    <h3>👨‍✈️ 省心靠谱</h3>
+                    <p>路线清晰、节奏舒适，能灵活应对旅途中的临时变化与需求。</p>
+                    <a href="rely-sp.html" class="btn">查看详情</a>
+                </div>
             </div>
-            <div class="card">
-                <h3>👨‍✈️ Experiencia</h3>
-                <p>Amplia experiencia guiando. Gestión flexible de cualquier imprevisto.</p>
+        </div>
+    </section>
+    
+    <section class="section home-tours-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门旅程</h2>
+                <p>从城市漫步到文化体验，挑一条适合你的旅行方式</p>
+            </div>
+
+            <div class="home-tours-grid">
+                <div class="tour-showcase-card">
+                    <div class="tour-showcase-tag">文化体验</div>
+                    <h3>北京文化一日游</h3>
+                    <p>故宫、胡同与城市故事，感受古今交织的北京。</p>
+                </div>
+
+                <div class="tour-showcase-card">
+                    <div class="tour-showcase-tag">城市漫步</div>
+                    <h3>上海城市漫步</h3>
+                    <p>外滩、街区与咖啡馆，轻松体验现代城市的节奏与氛围。</p>
+                </div>
+
+                <div class="tour-showcase-card">
+                    <div class="tour-showcase-tag">山城探索</div>
+                    <h3>重庆城市体验</h3>
+                    <p>在高低错落的街巷与夜景之间，感受 3D 城市的魔幻与烟火气。</p>
+                </div>
+            </div>
+
+            <div class="home-tours-action">
+                <a href="tours-sp.html" class="btn">查看全部旅程</a>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门旅程</h2>
+                <p>从城市漫步到文化体验，挑一条适合你的旅行方式</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card tour-card">
+                    <h3>北京文化一日游</h3>
+                    <p>故宫、胡同与城市故事，感受古今交织的北京。</p>
+                    <a href="tours-cn.html" class="btn">查看详情</a>
+                </div>
+
+                <div class="card tour-card">
+                    <h3>上海城市漫步</h3>
+                    <p>外滩、街区与咖啡馆，轻松体验现代城市的节奏与氛围。</p>
+                    <a href="tours-cn.html" class="btn">查看详情</a>
+                </div>
+
+                <div class="card tour-card">
+                    <h3>重庆城市体验</h3>
+                    <p>从城墙到街巷，在故事里遇见3D城市的魔幻与烟火气。</p>
+                    <a href="tours-cn.html" class="btn">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>旅客怎么说</h2>
+                <p>真实反馈，往往比任何宣传更有说服力</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card review-card">
+                    <p>“整个旅程很舒服，拍照特别自然，完全不像传统跟团。”</p>
+                    <strong>— 来自西班牙的旅客</strong>
+                </div>
+
+                <div class="card review-card">
+                    <p>“她不只是带路，更像一个真正懂这座城市的朋友。”</p>
+                    <strong>— 来自新加坡的旅客</strong>
+                </div>
+
+                <div class="card review-card">
+                    <p>“节奏安排很合理，讲解也很有趣，我们全程都很放松。”</p>
+                    <strong>— 来自马来西亚的旅客</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cta-box text-center">
+                <h2>准备好开始你的旅程了吗？</h2>
+                <p>联系 Zoe，定制属于你的中国旅行体验。</p>
+                <a href="contact-sp.html" class="btn">立即联系</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container" style="text-align: center;">
-            &copy; 2025 Viajamos con Zoe
-        </div>
+        &copy; 2025 Viajamos con Zoe. All rights reserved.
     </footer>
-    <script>
-    // 获取汉堡按钮和菜单列表
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
 
-    // 监听点击事件
-    menuToggle.addEventListener('click', () => {
-        // 切换 'active' 类 (如果有就删掉，没有就加上)
-        navLinks.classList.toggle('active');
-    });
-</script>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

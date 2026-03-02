@@ -1537,240 +1537,6 @@ footer,
 .footer-inner {
     text-align: center;
 }
-
-
-/* =========================================
-   18. 响应式：桌面以下
-   ========================================= */
-@media (max-width: 1100px) {
-    .hero-inner {
-        grid-template-columns: 1fr;
-        align-items: start;
-    }
-
-    .hero-stats-card {
-        justify-self: start;
-    }
-
-    .trust-grid,
-    .feature-grid,
-    .tour-grid,
-    .review-grid,
-    .grid-3,
-    .contact-layout {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .cta-panel {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-
-/* =========================================
-   19. 响应式：平板 / 手机
-   ========================================= */
-@media (max-width: 768px) {
-    .section {
-        padding: 65px 0;
-    }
-
-    .section-heading h2,
-    .page-header h1 {
-        font-size: 1.9rem;
-    }
-
-    /* 导航 */
-    nav .container,
-    .navbar,
-    .nav-inner {
-        padding: 15px 20px;
-    }
-
-    .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        background: var(--color-white);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        z-index: var(--z-header);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    .nav-links a {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
-
-    /* Hero */
-    .hero {
-        justify-content: center;
-        text-align: center;
-        padding: 0 20px;
-        min-height: 78vh;
-        background-position: 65% center;
-    }
-
-    .hero-inner {
-        padding: 56px 0 72px;
-    }
-
-    .hero h1,
-    .detail-header h1 {
-        font-size: 2.15rem;
-    }
-
-    .hero p,
-    .hero-desc {
-        max-width: 100%;
-        font-size: 1.05rem;
-    }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    .hero-stats-card {
-        width: 100%;
-        justify-self: stretch;
-    }
-
-    /* 首页扩展 */
-    .trust-bar {
-        margin-top: -20px;
-    }
-
-    .trust-grid,
-    .feature-grid,
-    .tour-grid,
-    .review-grid,
-    .grid-2,
-    .grid-3,
-    .contact-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .trust-item {
-        justify-content: flex-start;
-        padding: 0 8px;
-    }
-
-    .cta-panel {
-        padding: 28px;
-    }
-
-    .cta-copy h2 {
-        font-size: 1.7rem;
-    }
-
-    /* 路线列表 */
-    .tour-row {
-        flex-direction: column;
-    }
-
-    .tour-img-box {
-        height: 250px;
-        min-height: 250px;
-    }
-
-    .tour-img-box img {
-        position: relative;
-    }
-
-    /* 详情页 */
-    .detail-header {
-        height: 50vh;
-    }
-
-    .detail-header .page-header {
-        padding: 30px 20px;
-    }
-
-    .itinerary-item {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .time-tag {
-        margin-bottom: 5px;
-    }
-
-    /* About */
-    .about-hero {
-        gap: 30px;
-    }
-
-    .about-intro-text h1 {
-        font-size: 2rem;
-    }
-
-    .philosophy-box {
-        padding: 40px 24px;
-    }
-
-    .philosophy-content {
-        font-size: 1rem;
-    }
-
-    /* 返回按钮 */
-    .back-btn-glass {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-    }
-}
-
-
-/* =========================================
-   20. 响应式：超小屏
-   ========================================= */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.95rem;
-    }
-
-    .hero-actions,
-    .cta-actions {
-        width: 100%;
-    }
-
-    .hero-actions .btn,
-    .cta-actions .btn,
-    .btn {
-        width: 100%;
-    }
-
-    .cta-actions {
-        flex-direction: column;
-    }
-}
-
-
-
-
 /* =========================================
    19.1 首页当前 HTML 结构兼容补丁（home-cn.html）
    ========================================= */
@@ -1849,12 +1615,6 @@ footer,
     text-align: center;
 }
 
-@media (max-width: 900px) {
-    .home-tours-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* 当前首页中的 hero-inner 是单列，不使用左右 stats 卡结构 */
 .hero > .container > .hero-inner {
     display: block;
@@ -1930,53 +1690,6 @@ footer,
     margin-bottom: 24px;
 }
 
-/* 移动端首页适配 */
-@media (max-width: 768px) {
-    .hero > .container > .hero-inner {
-        max-width: 100%;
-        padding: 60px 0;
-        text-align: center;
-    }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    .section-title h2 {
-        font-size: 1.7rem;
-    }
-
-    .cta-box {
-        padding: 36px 22px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero > .container > .hero-inner .btn {
-        width: 100%;
-    }
-}
-
-/* =========================================
-   21. 减少动态效果适配
-   ========================================= */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-    }
-
-    .slide-item {
-        opacity: 1;
-        transform: none;
-    }
-}
 /* =========================================
    Instagram 风格完整版：Photo Service Page
    ========================================= */
@@ -2229,59 +1942,6 @@ footer,
     font-size: 1.3rem;
 }
 
-/* responsive */
-@media (max-width: 900px) {
-    .insta-profile {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        text-align: center;
-    }
-
-    .insta-profile-top,
-    .insta-profile-stats,
-    .insta-profile-actions {
-        justify-content: center;
-    }
-
-    .insta-cards-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .insta-avatar-ring {
-        width: 150px;
-        height: 150px;
-    }
-
-    .insta-profile-top h1 {
-        font-size: 1.6rem;
-    }
-
-    .insta-tabs {
-        gap: 18px;
-        flex-wrap: wrap;
-    }
-
-    .insta-tab {
-        font-size: 0.9rem;
-    }
-
-    .insta-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .insta-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .insta-profile-stats {
-        gap: 18px;
-    }
-}
 /* =========================================
    文化讲解页：高端定制旅游官网风格
    ========================================= */
@@ -2557,41 +2217,6 @@ footer,
 .lux-cta-panel {
     border-radius: 28px;
 }
-
-@media (max-width: 1100px) {
-    .lux-culture-hero-inner,
-    .lux-split-section,
-    .lux-intro-block {
-        grid-template-columns: 1fr;
-    }
-
-    .lux-culture-aside {
-        justify-content: flex-start;
-    }
-
-    .lux-metrics {
-        min-width: 0;
-    }
-
-    .lux-value-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .lux-culture-copy h1 {
-        font-size: 2.4rem;
-    }
-
-    .lux-actions {
-        justify-content: center;
-    }
-
-    .lux-metrics,
-    .lux-value-grid {
-        grid-template-columns: 1fr;
-    }
-}
 /* =========================================
    省心靠谱页：高端信赖页风格
    ========================================= */
@@ -2673,27 +2298,549 @@ footer,
     margin-bottom: 0;
     color: var(--color-text-muted);
 }
+/* =========================================
+   Mobile / Tablet Responsive Final
+   建议放在 style.css 最后
+   ========================================= */
 
+/* -------------------------------
+   1. 平板（<= 1100px）
+-------------------------------- */
 @media (max-width: 1100px) {
-    .lux-reliable-hero-inner {
+    .hero-inner,
+    .lux-culture-hero-inner,
+    .lux-reliable-hero-inner,
+    .lux-split-section,
+    .lux-intro-block,
+    .insta-profile,
+    .contact-layout {
         grid-template-columns: 1fr;
     }
 
+    .hero-stats-card,
+    .lux-culture-aside,
+    .lux-reliable-aside {
+        justify-self: start;
+    }
+
+    .trust-grid,
+    .feature-grid,
+    .tour-grid,
+    .review-grid,
+    .grid-3,
+    .lux-value-grid,
+    .lux-scenario-grid,
+    .insta-cards-grid,
+    .home-tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-panel {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lux-metrics {
+        min-width: 0;
+    }
+
+    .lux-culture-aside,
     .lux-reliable-aside {
         justify-content: flex-start;
     }
 }
 
+
+/* -------------------------------
+   2. 手机（<= 768px）
+-------------------------------- */
 @media (max-width: 768px) {
-    .lux-reliable-copy h1 {
-        font-size: 2.4rem;
+    /* 通用 */
+    .container {
+        width: 92%;
     }
 
+    .section {
+        padding: 1px 0;
+    }
+
+    .section-title h2,
+    .section-heading h2,
+    .page-header h1,
+    .hero h1,
+    .detail-header h1,
+    .lux-culture-copy h1,
+    .lux-reliable-copy h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero p,
+    .hero-desc,
+    .lux-desc,
+    .section-heading p,
+    .section-title p {
+        font-size: 1rem;
+    }
+
+    .grid,
+    .grid-2,
+    .grid-3,
+    .trust-grid,
+    .feature-grid,
+    .tour-grid,
+    .review-grid,
+    .lux-value-grid,
+    .lux-scenario-grid,
+    .insta-cards-grid,
+    .contact-layout,
+    .home-tours-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .feature-card,
+    .tour-showcase-card,
+    .lux-value-card,
+    .lux-scenario-card,
+    .insta-info-card,
+    .insta-save-card,
+    .faq-item,
+    .service-box,
+    .audience-card,
+    .lux-audience-card {
+        padding: 24px;
+    }
+
+    /* 导航 */
+    nav .container,
+    .navbar,
+    .nav-inner {
+        min-height: 68px;
+        padding: 12px 16px;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: calc(100vh - 68px);
+        overflow-y: auto;
+        padding: 12px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        background: var(--color-white);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        z-index: var(--z-header);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 72vh;
+        padding: 0 20px;
+        text-align: center;
+        justify-content: center;
+        background-position: 65% center;
+    }
+
+    .hero-inner {
+        padding: 50px 0 60px;
+    }
+
+    .hero-copy,
+    .lux-culture-copy,
+    .lux-reliable-copy {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-actions,
+    .cta-actions,
+    .lux-actions,
+    .insta-profile-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-stats-card,
+    .lux-aside-card,
+    .lux-split-card,
+    .cta-panel,
+    .cta-box,
+    .review-form-box,
+    .contact-card,
+    .contact-form-box,
+    .philosophy-box,
+    .lux-aside-card {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .trust-bar {
+        margin-top: -14px;
+    }
+
+    .trust-item {
+        justify-content: flex-start;
+        padding: 0 8px;
+        min-height: auto;
+    }
+
+    /* 首页热门旅程 */
+    .home-tours-section {
+        padding-bottom: 36px;
+    }
+
+    .home-tours-action {
+        margin-top: 24px;
+    }
+
+    /* 路线列表 */
+    .tour-row {
+        flex-direction: column;
+    }
+
+    .tour-img-box {
+        height: 240px;
+        min-height: 240px;
+    }
+
+    .tour-img-box img {
+        position: relative;
+    }
+
+    .tour-info-box {
+        padding: 22px;
+    }
+
+    /* 详情页 */
+    .detail-header {
+        height: 42vh;
+    }
+
+    .detail-header .page-header {
+        padding: 24px 20px;
+    }
+
+    .itinerary-item {
+        flex-direction: column;
+        gap: 8px;
+        padding-left: 24px;
+    }
+
+    .itinerary-item::before {
+        left: -10px;
+    }
+
+    .time-tag {
+        margin-bottom: 4px;
+        min-width: 0;
+    }
+
+    .included-box {
+        padding: 24px;
+    }
+
+    .included-list {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-bar {
+        padding: 12px 0;
+    }
+
+    .price-tag {
+        font-size: 1.5rem;
+    }
+
+    /* About */
+    .about-hero {
+        gap: 28px;
+    }
+
+    .about-intro-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-photo-frame img {
+        box-shadow: 12px 12px 0 #f0f2f5;
+    }
+
+    .language-badges {
+        gap: 8px;
+    }
+
+    .philosophy-box {
+        padding: 36px 22px;
+    }
+
+    .philosophy-content {
+        font-size: 1rem;
+    }
+
+    .bg-deco-text {
+        font-size: 4.5rem;
+        right: 12px;
+        bottom: -10px;
+    }
+
+    /* 联系页 */
+    .contact-list {
+        gap: 14px;
+    }
+
+    /* FAQ */
+    .faq-list {
+        gap: 14px;
+    }
+
+    /* Instagram 风格页 */
+    .insta-profile {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .insta-profile-top,
+    .insta-profile-stats,
+    .insta-profile-actions {
+        justify-content: center;
+    }
+
+    .insta-avatar-ring {
+        width: 150px;
+        height: 150px;
+    }
+
+    .insta-profile-top h1 {
+        font-size: 1.5rem;
+    }
+
+    .insta-tabs {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .insta-tab {
+        font-size: 0.88rem;
+    }
+
+    /* 保持手机端九宫格 */
+    .insta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .insta-post {
+        aspect-ratio: 1 / 1;
+    }
+
+    .insta-post-overlay {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    /* 文化讲解 / 省心靠谱 */
+    .lux-culture-hero,
+    .lux-reliable-hero {
+        min-height: 78vh;
+        background-position: center center;
+    }
+
+    .lux-culture-hero-inner,
+    .lux-reliable-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 56px 0 64px;
+    }
+
+    .lux-intro-block,
+    .lux-split-section {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .lux-metrics {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .lux-metric {
+        padding: 18px 16px;
+    }
+
+    .lux-value-grid,
     .lux-scenario-grid {
         grid-template-columns: 1fr;
     }
 
     .lux-actions {
         justify-content: center;
+    }
+
+    /* 返回按钮 */
+    .back-btn-glass {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* 页脚 */
+    footer,
+    .site-footer {
+        margin-top: 40px;
+        padding: 28px 16px;
+    }
+}
+
+
+/* -------------------------------
+   3. 小手机（<= 480px）
+-------------------------------- */
+@media (max-width: 480px) {
+    .section {
+        padding: 36px 0;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .section-title h2,
+    .section-heading h2,
+    .page-header h1,
+    .hero h1,
+    .detail-header h1,
+    .lux-culture-copy h1,
+    .lux-reliable-copy h1 {
+        font-size: 1.8rem;
+    }
+
+    .cta-copy h2 {
+        font-size: 1.5rem;
+    }
+
+    /* 按钮：仅特定区域满宽，不全局 */
+    .hero-actions,
+    .cta-actions,
+    .lux-actions,
+    .insta-profile-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn,
+    .lux-actions .btn,
+    .insta-profile-actions .btn {
+        width: 100%;
+    }
+
+    /* Instagram：仍然保持 3 列 */
+    .insta-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+
+    .insta-profile-stats {
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .insta-badge,
+    .photo-badge,
+    .hero-badge,
+    .lux-badge {
+        font-size: 0.82rem;
+        padding: 7px 12px;
+    }
+
+    .trust-grid {
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .feature-card,
+    .tour-showcase-card,
+    .review-card,
+    .insta-info-card,
+    .insta-save-card,
+    .lux-value-card,
+    .lux-scenario-card,
+    .faq-item,
+    .service-box,
+    .audience-card,
+    .lux-audience-card,
+    .lux-split-card,
+    .cta-panel,
+    .cta-box {
+        padding: 20px;
+    }
+
+    .tour-img-box {
+        height: 210px;
+        min-height: 210px;
+    }
+
+    .detail-header {
+        height: 36vh;
+    }
+
+    .detail-header .page-header {
+        padding: 20px 16px;
+    }
+
+    .review-form-box,
+    .contact-card,
+    .contact-form-box,
+    .included-box,
+    .philosophy-box {
+        padding: 20px;
+    }
+}
+
+
+/* -------------------------------
+   4. 减少动态效果
+-------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .slide-item {
+        opacity: 1;
+        transform: none;
     }
 }
